@@ -43,7 +43,7 @@ def mk_process(command, quiet=False, get_output=False, shell=True):
                                stderr=STDOUT)
     stdout, stderr = process.communicate()
     if quiet == False:
-        print stdout
+        print(stdout)
     if get_output:
         return stdout
     else:
@@ -69,7 +69,7 @@ class RosProcess():
     def run(self):
         stdout, stderr = self.process.communicate()
         if self.quiet == False:
-            print stdout
+            print(stdout)
         if self.get_output:
             return stdout
         else:
