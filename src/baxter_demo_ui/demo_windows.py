@@ -107,7 +107,7 @@ class BrrWindow(object):
 
         self._buttons = dict()
 
-        for name, btn in buttons.items():
+        for name, btn in list(buttons.items()):
             self._buttons[btn.index] = btn
 
         if self.parent and len(self._buttons) > 1:
@@ -123,7 +123,7 @@ class BrrWindow(object):
             self._states['normal'][name] = self._gen_img(name, disabled=False)
             self._states['disabled'][name] = self._gen_img(name, disabled=True)
 
-        if 'text' in window_data.keys():
+        if 'text' in list(window_data.keys()):
             self.text = window_data['text']
         else:
             self.text = list()
@@ -152,7 +152,7 @@ class BrrWindow(object):
         return self._buttons[self._selected_btn_index]
 
     def get_btn(self, name):
-        btns = [btn for btn in self._buttons.values() if btn.name == name]
+        btns = [btn for btn in list(self._buttons.values()) if btn.name == name]
         if len(btns):
             return btns[0]
         return False
@@ -174,7 +174,7 @@ class BrrWindow(object):
     def _gen_img(self, sel_btn, disabled=False):
         tmp = copy(self._bg['img'])
         d = ImageDraw.Draw(tmp)
-        for name, btn in self._buttons.items():
+        for name, btn in list(self._buttons.items()):
             if btn.name == sel_btn:
                 if disabled:
                     state = 'pressed'

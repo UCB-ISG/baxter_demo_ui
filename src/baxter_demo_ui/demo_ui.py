@@ -64,7 +64,7 @@ from .img_proc import (
     overlay,
 )
 
-import demo_functions
+from . import demo_functions
 
 
 '''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -278,7 +278,7 @@ class BrrUi(object):
                                           '', 0, True, self.share_path)
                 self._btn_context[name] = {'nextWindow': window['parent'],
                                          'function': 'Back'}
-            if 'Buttons' in window.keys():
+            if 'Buttons' in list(window.keys()):
                 for btn in window['Buttons']:
                     buttons[btn['name']] = BrrButton(
                                                      btn['name'],
